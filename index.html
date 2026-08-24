@@ -1,0 +1,782 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kyuwon (Kathryn) Park — AI Researcher</title>
+<meta name="description" content="Kyuwon (Kathryn) Park — undergraduate AI researcher at DGIST, working on multimodal medical imaging at MGH Woo Lab, Harvard Medical School.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --ink:#14181f;
+    --ink-soft:#4a5058;
+    --paper:#ffffff;
+    --paper-raised:#f7f7f5;
+    --line:#e2ded6;
+
+    --lab:#2f6f6b;
+    --lab-soft:#e6efee;
+    --brand:#c65b74;
+    --brand-soft:#fbe8ec;
+
+    --accent:#5c6560;
+    --accent-soft:#eceae4;
+
+    --serif:'Fraunces', Georgia, serif;
+    --mono:'IBM Plex Mono', ui-monospace, monospace;
+    --sans:'Inter', -apple-system, sans-serif;
+
+    --maxw:1040px;
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:var(--sans);
+    font-size:16px;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:inherit;}
+  ::selection{background:var(--accent-soft);}
+  img{max-width:100%; display:block;}
+
+  .wrap{max-width:var(--maxw); margin:0 auto; padding:0 28px;}
+
+  /* ---------- NAV ---------- */
+  nav{
+    position:sticky; top:0; z-index:50;
+    background:rgba(255,255,255,.88);
+    backdrop-filter:saturate(140%) blur(8px);
+    border-bottom:1px solid var(--line);
+  }
+  nav .wrap{display:flex; align-items:center; justify-content:space-between; height:64px;}
+  .brandmark{font-family:var(--mono); font-weight:600; font-size:14px; letter-spacing:.02em;}
+  .brandmark span{color:var(--lab);}
+  .navlinks{display:flex; gap:24px; font-size:13.5px; font-family:var(--mono);}
+  .navlinks a{text-decoration:none; color:var(--ink-soft);}
+  .navlinks a:hover{color:var(--ink);}
+
+  /* ---------- HERO ---------- */
+  .hero{position:relative; padding:80px 0 46px; overflow:hidden;}
+  .hero::before{
+    content:""; position:absolute; z-index:0; pointer-events:none;
+    width:60%; height:130%; top:-15%; left:-15%;
+    border-radius:50%; filter:blur(70px); opacity:.30; background:var(--lab-soft);
+  }
+  .hero-inner{position:relative; z-index:1;}
+  .hero-top{display:flex; align-items:center; justify-content:space-between; gap:22px; margin-bottom:22px;}
+  .hero-photo-inline{
+    height:220px; width:auto; border-radius:8px; object-fit:cover; flex:none;
+    border:1px solid var(--line);
+  }
+  .eyebrow{
+    font-family:var(--mono); font-size:12.5px; letter-spacing:.08em;
+    text-transform:uppercase; color:var(--lab); margin:0 0 16px;
+  }
+  h1.title{
+    font-family:var(--serif); font-weight:600;
+    font-size:clamp(2.2rem, 5vw, 3.5rem);
+    line-height:1.05; letter-spacing:-.01em; margin:0 0 6px;
+  }
+  .role-line{
+    font-family:var(--serif); font-style:italic; font-weight:500;
+    font-size:clamp(1.05rem, 1.8vw, 1.3rem); color:var(--ink-soft); margin:0 0 22px;
+  }
+  .hero-bio p{font-size:1.01rem; color:var(--ink-soft); max-width:640px; margin:0 0 15px;}
+  .hero-bio strong{color:var(--ink); font-weight:600;}
+
+  .cta-row{display:flex; flex-wrap:wrap; gap:12px; margin-top:24px;}
+  .btn{
+    font-family:var(--mono); font-size:13px; letter-spacing:.02em;
+    padding:11px 20px; border-radius:999px; text-decoration:none;
+    border:1px solid var(--line); color:var(--ink); background:var(--paper-raised);
+  }
+  .btn:hover{border-color:var(--ink);}
+  .btn.primary{background:var(--ink); color:var(--paper); border-color:var(--ink);}
+  .btn.primary:hover{background:#000;}
+
+  /* ---------- FACT CARD (with education folded in) ---------- */
+  .fact-card{
+    background:var(--paper-raised); border:1px solid var(--line); border-radius:14px;
+    padding:20px 22px; margin-top:30px;
+  }
+  .fact-row{display:flex; justify-content:space-between; gap:16px; padding:8px 0; font-size:13px; font-family:var(--mono);}
+  .fact-row + .fact-row{border-top:1px dashed var(--line);}
+  .fact-row span:first-child{color:var(--ink-soft); white-space:nowrap;}
+  .fact-row span:last-child{text-align:right; color:var(--ink);}
+  .fact-card .edu-divider{
+    font-family:var(--mono); font-size:10px; letter-spacing:.08em; text-transform:uppercase;
+    color:var(--accent); padding-top:12px; margin-top:4px; border-top:1px solid var(--line);
+  }
+
+  /* ---------- SECTION shell ---------- */
+  section{padding:64px 0;}
+  section + section{border-top:1px solid var(--line);}
+  .kicker{
+    font-family:var(--mono); font-size:12px; letter-spacing:.1em; text-transform:uppercase;
+    color:var(--accent); margin:0 0 8px;
+  }
+  h2.h-section{
+    font-family:var(--serif); font-weight:600; font-size:clamp(1.5rem,3vw,2.05rem);
+    margin:0 0 28px;
+  }
+  h3.h-sub{
+    font-family:var(--mono); font-size:12.5px; letter-spacing:.06em; text-transform:uppercase;
+    color:var(--accent); margin:32px 0 16px;
+  }
+  h3.h-sub:first-of-type{margin-top:0;}
+
+  /* ---------- NEWS (compact, year-grouped) ---------- */
+  .year-group{display:grid; grid-template-columns:84px 1fr; gap:22px; padding:18px 0; border-top:1px solid var(--line);}
+  .year-group:first-child{border-top:none; padding-top:0;}
+  .year-label{font-family:var(--serif); font-weight:600; font-size:1.5rem; color:var(--ink); line-height:1;}
+  .year-items{list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:9px;}
+  .year-items li{display:flex; gap:10px; align-items:baseline; font-size:.92rem; color:var(--ink-soft);}
+  .year-items .dot{
+    width:7px; height:7px; border-radius:50%; flex:none; margin-top:5px;
+    background:var(--ink);
+  }
+  .year-items li.research .dot{background:var(--lab);}
+  .year-items li.content .dot{background:var(--brand);}
+  .year-items .m{font-family:var(--mono); font-size:11px; color:var(--accent); flex:none; width:34px;}
+  .year-items strong{color:var(--ink); font-weight:600;}
+  .tag{
+    font-family:var(--mono); font-size:10.5px; letter-spacing:.04em; text-transform:uppercase;
+    padding:3px 9px; border-radius:999px; border:1px solid var(--line); color:var(--ink-soft);
+    white-space:nowrap;
+  }
+  .tag.research{border-color:var(--lab); color:var(--lab);}
+  .tag.content{border-color:var(--brand); color:var(--brand);}
+  .tag.leadership, .tag.award{border-color:var(--ink); color:var(--ink);}
+
+  /* ---------- PUBLICATIONS ---------- */
+  .pub-card{
+    background:var(--paper-raised); border:1px solid var(--line); border-radius:14px;
+    padding:24px 26px; margin-bottom:18px;
+  }
+  .pub-top{display:flex; flex-wrap:wrap; gap:10px; align-items:center; margin-bottom:10px;}
+  .pub-status{
+    font-family:var(--mono); font-size:10.5px; text-transform:uppercase; letter-spacing:.05em;
+    padding:3px 10px; border-radius:999px; background:var(--accent-soft); color:var(--ink-soft);
+  }
+  .pub-status.accepted{background:var(--lab-soft); color:var(--lab); font-weight:600;}
+  .pub-card h3{font-family:var(--serif); font-size:1.15rem; font-weight:600; margin:0 0 6px;}
+  .pub-venue{font-family:var(--mono); font-size:12px; color:var(--lab); margin-bottom:12px;}
+  .pub-card p{color:var(--ink-soft); font-size:.94rem; margin:0;}
+  .pub-img{max-width:420px; width:100%; border-radius:10px; border:1px solid var(--line); margin-top:16px;}
+
+  /* ---------- EXPERIENCE ---------- */
+  .timeline{position:relative; padding-left:26px;}
+  .timeline::before{content:""; position:absolute; left:5px; top:6px; bottom:6px; width:1px; background:var(--line);}
+  .tl-item{position:relative; padding-bottom:34px;}
+  .tl-item:last-child{padding-bottom:0;}
+  .tl-marker{position:absolute; left:-26px; top:4px; width:11px; height:11px; border-radius:50%; background:var(--lab); border:2px solid var(--paper);}
+  .tl-head{display:flex; flex-wrap:wrap; align-items:baseline; gap:10px; margin-bottom:4px;}
+  .tl-org{font-family:var(--serif); font-weight:600; font-size:1.06rem;}
+  .tl-role{font-size:.9rem; color:var(--ink-soft);}
+  .tl-date{font-family:var(--mono); font-size:12px; color:var(--ink-soft); margin-left:auto;}
+  .tl-item .tag{border-color:var(--lab); color:var(--lab);}
+  .tl-advisor{font-size:.85rem; color:var(--ink-soft); font-style:italic; margin:2px 0 8px;}
+  .tl-list{margin:0; padding-left:18px; color:var(--ink-soft); font-size:.92rem;}
+  .tl-list li{margin-bottom:5px;}
+  .tl-img{max-width:300px; margin-top:12px; border-radius:10px; border:1px solid var(--line);}
+  .tl-file-link{
+    display:inline-block; margin-top:10px; font-family:var(--mono); font-size:12.5px;
+    color:var(--lab); text-decoration:none; border-bottom:1px solid var(--lab); padding-bottom:1px;
+  }
+  .tl-file-link:hover{opacity:.75;}
+
+  /* ---------- BACKGROUND (education/certs/languages/awards) ---------- */
+  .info-table{width:100%; border-collapse:collapse; font-size:.92rem;}
+  .info-table td{padding:11px 4px; border-top:1px solid var(--line); vertical-align:top;}
+  .info-table tr:first-child td{border-top:none;}
+  .info-table td.label{font-family:var(--serif); font-weight:600; width:34%;}
+  .info-table td.date{font-family:var(--mono); font-size:12px; color:var(--ink-soft); text-align:right; white-space:nowrap;}
+
+  .simple-list{display:flex; flex-direction:column;}
+  .simple-list-item{display:flex; justify-content:space-between; align-items:baseline; gap:16px; padding:12px 0; border-top:1px solid var(--line);}
+  .simple-list-item:first-child{border-top:none;}
+  .sli-title{font-family:var(--serif); font-weight:600; font-size:.96rem;}
+  .sli-desc{font-size:.85rem; color:var(--ink-soft); margin-top:2px;}
+  .sli-date{font-family:var(--mono); font-size:12px; color:var(--ink-soft); white-space:nowrap; flex:none;}
+
+  /* ---------- HOW I WORK ---------- */
+  .traits-grid{display:grid; grid-template-columns:repeat(2,1fr); gap:18px; margin-bottom:36px;}
+  .trait-card{background:var(--paper-raised); border:1px solid var(--line); border-radius:12px; padding:18px 20px;}
+  .trait-card .trait-icon{font-size:1.1rem; margin-bottom:6px;}
+  .trait-card h4{font-family:var(--serif); font-size:1rem; margin:0 0 6px; font-weight:600;}
+  .trait-card p{font-size:.87rem; color:var(--ink-soft); margin:0;}
+  .principle-list{list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:14px;}
+  .principle-list li{display:flex; gap:12px; font-size:.93rem; color:var(--ink-soft); align-items:flex-start;}
+  .principle-list .p-num{
+    font-family:var(--mono); font-size:11px; color:var(--lab); border:1px solid var(--lab);
+    border-radius:50%; width:22px; height:22px; display:flex; align-items:center; justify-content:center;
+    flex:none; margin-top:1px;
+  }
+  .principle-list strong{color:var(--ink); font-weight:600;}
+  .startup-block{margin-bottom:48px; padding-bottom:48px; border-bottom:1px solid var(--line);}
+  .startup-block:last-of-type{border-bottom:none; margin-bottom:0; padding-bottom:0;}
+  .startup-hero{max-width:360px; width:100%; border-radius:14px; border:1px solid var(--line); margin-bottom:20px;}
+  .startup-head{display:flex; align-items:baseline; gap:12px; flex-wrap:wrap; margin-bottom:6px;}
+  .startup-head h3{font-family:var(--serif); font-size:1.35rem; margin:0; font-weight:600;}
+  .startup-meta{font-family:var(--mono); font-size:11.5px; color:var(--accent);}
+  .startup-tagline{font-family:var(--serif); font-style:italic; color:var(--ink-soft); font-size:1.02rem; margin:0 0 16px;}
+  .startup-block p{color:var(--ink-soft); font-size:.96rem;}
+  .startup-facts{display:grid; grid-template-columns:repeat(3,1fr); gap:16px; margin:20px 0; font-size:.85rem;}
+  .startup-facts div{border-top:1px solid var(--line); padding-top:9px;}
+  .startup-facts span{display:block;}
+  .startup-facts span:first-child{font-family:var(--mono); font-size:10px; text-transform:uppercase; letter-spacing:.05em; color:var(--accent); margin-bottom:4px;}
+  .startup-facts span:last-child{color:var(--ink); font-size:.86rem;}
+  .startup-update{background:var(--lab-soft); border-radius:10px; padding:18px 20px; margin-top:20px;}
+  .update-label{font-family:var(--mono); font-size:11px; text-transform:uppercase; letter-spacing:.04em; color:var(--lab); margin-bottom:8px;}
+  .startup-update p{color:var(--ink-soft); margin:0; font-size:.9rem;}
+  .startup-sub-img{max-width:360px; width:100%; border-radius:12px; border:1px solid var(--line); margin-top:20px;}
+  .proj-grid{display:grid; grid-template-columns:repeat(2,1fr); gap:20px;}
+  .proj-card{
+    background:var(--paper-raised); border:1px dashed var(--line); border-radius:16px;
+    padding:24px; display:flex; flex-direction:column; gap:10px;
+  }
+  .proj-card h3{font-family:var(--serif); font-size:1.1rem; margin:0; font-weight:600;}
+  .proj-card .proj-meta{font-family:var(--mono); font-size:11px; color:var(--accent);}
+  .proj-card p{color:var(--ink-soft); font-size:.9rem; margin:0;}
+
+  .activity-list{display:flex; flex-direction:column; gap:16px;}
+  .activity-item{
+    display:grid; grid-template-columns:96px 1fr; gap:16px; align-items:center;
+  }
+  .activity-item.no-img{grid-template-columns:1fr;}
+  .activity-item.reverse{grid-template-columns:1fr 180px;}
+  .activity-item.reverse .activity-thumb{order:2;}
+  .activity-thumb{width:96px; height:72px; object-fit:cover; border-radius:8px; border:1px solid var(--line);}
+  .activity-thumb.lg{width:180px; height:135px;}
+  .activity-title{font-family:var(--serif); font-weight:600; font-size:.98rem; margin-bottom:2px;}
+  .activity-meta{font-family:var(--mono); font-size:11px; color:var(--accent); margin-bottom:3px;}
+  .activity-desc{font-size:.88rem; color:var(--ink-soft);}
+  .inline-link{color:var(--lab); text-decoration:none; border-bottom:1px solid var(--lab); font-family:var(--mono); font-size:.8rem; margin-left:2px;}
+  .inline-link:hover{opacity:.75;}
+
+  .video-row{display:flex; gap:14px; margin-top:20px;}
+  .video-embed{position:relative; width:150px; aspect-ratio:16/9; border-radius:8px; overflow:hidden; border:1px solid var(--line); background:#000; flex:none;}
+  .video-embed.portrait{width:84px; aspect-ratio:9/16;}
+  .video-embed iframe{position:absolute; top:0; left:0; width:100%; height:100%; border:0;}
+
+  /* ---------- SKILLS ---------- */
+  .skill-groups{display:grid; grid-template-columns:1fr; gap:16px;}
+  .skill-group h4{
+    font-family:var(--mono); font-size:10.5px; letter-spacing:.05em; text-transform:uppercase;
+    color:var(--accent); margin:0 0 8px; font-weight:500;
+  }
+  .chips{display:flex; flex-wrap:wrap; gap:6px;}
+  .chip{
+    font-size:11.5px; padding:3px 10px; border-radius:999px; background:var(--accent-soft);
+    border:1px solid var(--line); color:var(--ink-soft);
+  }
+  .chip.lab{background:transparent; border-color:var(--line);}
+  .chip.brand{background:transparent; border-color:var(--line);}
+
+  /* ---------- GALLERY ---------- */
+  .gallery-row{display:grid; gap:16px; margin-bottom:16px;}
+  .gallery-row-3{grid-template-columns:repeat(3,1fr);}
+  .gallery-row-2{grid-template-columns:repeat(2,1fr);}
+  .gallery-item{display:flex; flex-direction:column;}
+  .gallery-photo{
+    aspect-ratio:1/1; width:100%; object-fit:cover; border-radius:10px; border:1px solid var(--line);
+  }
+  .gallery-photo-slot{
+    aspect-ratio:1/1; border-radius:10px; border:1px dashed var(--line);
+    background:var(--paper-raised); display:flex; align-items:center; justify-content:center;
+    color:var(--accent); font-family:var(--mono); font-size:11px;
+  }
+  .gallery-cap{
+    font-size:11px; color:var(--ink-soft);
+    padding:6px 1px 0; line-height:1.35;
+  }
+
+  /* ---------- CONTACT ---------- */
+  .contact-inner{display:flex; justify-content:space-between; align-items:flex-end; flex-wrap:wrap; gap:24px;}
+  .contact-links{display:flex; gap:12px; flex-wrap:wrap;}
+  footer{padding:24px 0 40px; font-family:var(--mono); font-size:11.5px; color:var(--ink-soft);}
+
+  .reveal{opacity:0; transform:translateY(14px); transition:opacity .6s ease, transform .6s ease;}
+  .reveal.in{opacity:1; transform:none;}
+
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    .reveal{opacity:1; transform:none; transition:none;}
+  }
+
+  @media (max-width: 780px){
+    .startup-facts{grid-template-columns:1fr;}
+    .proj-grid{grid-template-columns:1fr;}
+    .navlinks{display:none;}
+    .year-group{grid-template-columns:1fr; gap:8px;}
+    .tl-date{margin-left:0;}
+    .activity-item{grid-template-columns:72px 1fr;}
+    .activity-item.reverse{grid-template-columns:1fr 96px;}
+    .activity-thumb.lg{width:96px; height:72px;}
+    .traits-grid{grid-template-columns:1fr;}
+    .gallery-row-3{grid-template-columns:repeat(3,1fr);}
+    .gallery-row-2{grid-template-columns:repeat(2,1fr);}
+    .info-table td.date{text-align:left; display:block;}
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <div class="brandmark">KYUWON<span>.</span>PARK</div>
+    <div class="navlinks">
+      <a href="#about">About</a>
+      <a href="#news">News</a>
+      <a href="#background">Background</a>
+      <a href="#publications">Papers</a>
+      <a href="#experience">Experience</a>
+      <a href="#projects">Projects</a>
+      <a href="#skills">Skills</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero" id="about">
+  <div class="wrap hero-inner">
+    <p class="eyebrow">Undergraduate Researcher · DGIST</p>
+
+    <div class="hero-top">
+      <div>
+        <h1 class="title">Kyuwon (Kathryn) Park</h1>
+        <p class="role-line" style="margin-bottom:0;">AI researcher working on multimodal data.</p>
+      </div>
+      <img class="hero-photo-inline" src="images/1.jpg" alt="Kyuwon Park">
+    </div>
+
+    <div class="hero-bio">
+      <p>I'm an undergraduate at <strong>DGIST</strong>, double-majoring in Computer Engineering and Life Sciences, graduating February 2027. For two and a half years I've researched multimodal medical AI in DGIST's <strong>MBIS Lab</strong> under Professor Jaeyoun Hwang — work that extended to the <strong>Woo Lab at Massachusetts General Hospital and Harvard Medical School</strong> under Professor Jonghye Woo, building cross-attention models for Alzheimer's diagnosis and diffusion models for brain tumor synthesis.</p>
+      <p>Outside the lab, I've been a Ministry of SMEs K-Global Correspondent, a DGIST SNS Supporter, and team lead of the open-source team in Samsung Electronics' Open Tech Companions program. I also co-founded a startup that won gold at the GCSC International Startup Camp.</p>
+    </div>
+
+    <div class="cta-row">
+      <a class="btn primary" href="mailto:kw040131@dgist.ac.kr">Email me</a>
+      <a class="btn" href="Kyuwon_Park_CV_academic.pdf" target="_blank" rel="noopener">View CV</a>
+      <a class="btn" href="https://www.linkedin.com/in/kyuwon-kathryn-park-60119637b/" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+  </div>
+</header>
+
+<section id="news">
+  <div class="wrap">
+    <p class="kicker">News</p>
+    <h2 class="h-section">Timeline</h2>
+    <div class="news-list">
+
+      <div class="year-group reveal">
+        <div class="year-label">2026</div>
+        <ul class="year-items">
+          <li class="content"><span class="dot"></span><span class="m">Aug–</span><span>Selected for <strong>Samsung Electronics Open Tech Companions</strong>, 7th cohort (through Dec)</span></li>
+          <li class="content"><span class="dot"></span><span class="m">Aug</span><span>Completed the <strong>Samsung Life Insurance Special Financial Academy</strong> (4-day program)</span></li>
+          <li class="research"><span class="dot"></span><span class="m">Jul</span><span><strong>DGM4MICCAI paper accepted</strong> at MICCAI 2026 workshop</span></li>
+          <li class="content"><span class="dot"></span><span class="m">Jul–</span><span>Started <strong>Jetmind</strong>, a startup project (ongoing)</span></li>
+          <li class="content"><span class="dot"></span><span class="m">Jul</span><span>Completed the <strong>Google Analytics (GA4) Certification</strong></span></li>
+          <li class="content"><span class="dot"></span><span class="m">Apr</span><span><strong>Kiwoom Securities Supporters</strong>, 2nd cohort (through Sep)</span></li>
+          <li class="award"><span class="dot"></span><span class="m">Feb</span><span><strong>Gold Award</strong> at the GCSC International Startup Camp; presented at SUSHI TECH Tokyo</span></li>
+          <li class="content"><span class="dot"></span><span class="m">Jan–Jul</span><span>Started <strong>Gachi</strong>, a startup project</span></li>
+        </ul>
+      </div>
+
+      <div class="year-group reveal">
+        <div class="year-label">2025</div>
+        <ul class="year-items">
+          <li class="leadership"><span class="dot"></span><span class="m">Oct–Jan</span><span><strong>4th Industrial Revolution Youth Experience Corps</strong> (8th cohort) — toured CES 2026 &amp; Silicon Valley</span></li>
+          <li class="research"><span class="dot"></span><span class="m">Sep–</span><span>Remote Researcher at <strong>MGH Woo Lab</strong> — 2 first-author papers submitted to MICCAI workshops (one now accepted)</span></li>
+          <li class="research"><span class="dot"></span><span class="m">Jun–Sep</span><span>Research Intern at <strong>MGH Woo Lab, Harvard Medical School</strong>, under Prof. Jonghye Woo</span></li>
+          <li class="research"><span class="dot"></span><span class="m">Spring</span><span>Poster at K-Bio Star / Glocal Lab student conference (Layer-CAM brain MRI analysis)</span></li>
+          <li class="content"><span class="dot"></span><span class="m">Mar–Dec</span><span><strong>K-Global Correspondent</strong> &amp; DGIST SNS Supporter "Dignal" — 50,000+ combined reach</span></li>
+          <li class="research"><span class="dot"></span><span class="m">Mar–Dec</span><span>UGRP blood-pressure patch poster at WEEF &amp; GEDC</span></li>
+        </ul>
+      </div>
+
+      <div class="year-group reveal">
+        <div class="year-label">2024</div>
+        <ul class="year-items">
+          <li class="research"><span class="dot"></span><span class="m">Oct</span><span>Joined DGIST's <strong>MBIS Lab</strong> as an undergraduate researcher under Prof. Jaeyoun Hwang</span></li>
+          <li class="research"><span class="dot"></span><span class="m">Jun–Aug</span><span>Summer Research Intern at DGIST's <strong>SEO Lab</strong> under Prof. Jin Soo Seo — Alzheimer's pathology, organoid models</span></li>
+        </ul>
+      </div>
+
+      <div class="year-group reveal">
+        <div class="year-label">2023</div>
+        <ul class="year-items">
+          <li class="leadership"><span class="dot"></span><span class="m">Jun–Aug</span><span>Summer student at <strong>UC Berkeley</strong></span></li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section id="background">
+  <div class="wrap">
+    <p class="kicker">Background</p>
+    <h2 class="h-section">Education, certifications &amp; awards</h2>
+
+    <h3 class="h-sub">Education</h3>
+    <table class="info-table reveal">
+      <tr><td class="label">DGIST</td><td>Computer Engineering &amp; Life Sciences, Double Major (B.S.)</td><td class="date">Feb 2023 – Feb 2027 (expected)</td></tr>
+      <tr><td class="label">UC Berkeley</td><td>Summer Student</td><td class="date">Jun 2023 – Aug 2023</td></tr>
+      <tr><td class="label">Korea University</td><td>Exchange Student</td><td class="date">Mar 2026 – Jun 2026</td></tr>
+    </table>
+
+    <h3 class="h-sub">Languages</h3>
+    <div class="chips reveal">
+      <span class="chip">Korean — Native</span>
+      <span class="chip">English — TOEIC 900 (2024)</span>
+      <span class="chip">English — OPIc IH (2026)</span>
+    </div>
+
+    <h3 class="h-sub">Awards</h3>
+    <div class="simple-list reveal">
+      <div class="simple-list-item">
+        <div>
+          <div class="sli-title">Gold Award — GCSC (Global College Startup Camp)</div>
+          <div class="sli-desc">Local Track 1st place, international startup competition; Gachon University × Hitotsubishi University · <a class="inline-link" href="https://futurechosun.com/archives/143748?fbclid=PAZnRzaAP5B7xleHRuA2FlbQIxMQBzcnRjBmFwcF9pZA8xMjQwMjQ1NzQyODc0MTQAAaeKqHGkuNgwN_X2MIYH2USRdRy388o9dl8OEWsS5v4x4wAC2SFMqvlwjCvpsA_aem_KPYYfIJ0SYHIuWmVqjL1zQ" target="_blank" rel="noopener">Coverage ↗</a></div>
+        </div>
+        <span class="sli-date">Jan – Feb 2026</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="publications">
+  <div class="wrap">
+    <p class="kicker">Research</p>
+    <h2 class="h-section">Papers &amp; Research Projects</h2>
+
+    <div class="pub-card reveal">
+      <div class="pub-top">
+        <span class="pub-status accepted">Accepted</span>
+      </div>
+      <h3>Patient-Adaptive Modality Attention for Multimodal Brain Tumor Synthesis via Latent Diffusion</h3>
+      <p class="pub-venue">K. Park et al. — <a href="https://dgm4miccai.github.io/" target="_blank" rel="noopener">MICCAI Workshop (DGM4MICCAI) 2026</a></p>
+      <p>DAMAN is a subject-specific multimodal latent diffusion framework that synthesizes high-fidelity brain tumors across MRI modalities. It uses disease-aware attention — quality-aware gating and voxel-level, lesion-specific spatial attention over modality-specific 3D VQ-GAN latents — to adaptively fuse cross-modal features, plus a hard-inpainting loop that preserves the background at every diffusion step. On the LUMIERE glioblastoma dataset, it reaches a PSNR of 20.27 dB and SSIM of 0.919 on T1-post, with a 100% valid generation rate versus 50–56% for single-modal baselines.</p>
+      <p style="margin-top:10px;"><strong>Also presenting as an oral talk at MICCAI 2026 in Strasbourg, France (October 1).</strong></p>
+      <img class="pub-img" src="images/2.png" alt="DAMAN framework architecture diagram">
+      <img class="pub-img" src="images/3.png" alt="DAMAN results figure">
+    </div>
+
+    <div class="pub-card reveal">
+      <h3>Redundancy-Aware Cross-Modal Attention for Multimodal Alzheimer's Diagnosis</h3>
+      <p class="pub-venue">Research project</p>
+      <p>Bidirectional cross-attention network fusing MRI and PET for Alzheimer's diagnosis.</p>
+      <img class="pub-img" src="images/cam1.png" alt="Bi-directional cross-attention network architecture">
+      <img class="pub-img" src="images/cam2.png" alt="Qualitative visualization of structure-function verification">
+    </div>
+
+  </div>
+</section>
+
+<section id="experience">
+  <div class="wrap">
+    <p class="kicker">Experience</p>
+    <h2 class="h-section">Where I've worked</h2>
+    <div class="timeline">
+
+      <div class="tl-item reveal">
+        <span class="tl-marker"></span>
+        <div class="tl-head">
+          <span class="tl-org">MGH Woo Lab, Harvard Medical School</span>
+          <span class="tag">Research</span>
+          <span class="tl-date">Jun 2025 – Mar 2026</span>
+        </div>
+        <p class="tl-advisor">Advisor: Prof. Jonghye Woo, Associate Professor of Radiology</p>
+
+        <div class="tl-role">Research Intern <span style="font-weight:400; color:var(--ink-soft);">— Jun 2025 – Sep 2025</span></div>
+        <ul class="tl-list">
+          <li>Studied diffusion-based tumor synthesis and curated paired multi-contrast MRI datasets for segmentation research</li>
+        </ul>
+
+        <div class="tl-role" style="margin-top:12px;">Remote Researcher <span style="font-weight:400; color:var(--ink-soft);">— Sep 2025 – Mar 2026</span></div>
+        <ul class="tl-list">
+          <li>Built AI pipelines for chest X-ray reading support, tumor-synthesis diffusion models, and an MRI–PET fusion network for Alzheimer's diagnosis</li>
+          <li>Result: First-author paper accepted to MICCAI-affiliated workshop (see Papers &amp; Research Projects)</li>
+        </ul>
+      </div>
+
+      <div class="tl-item reveal">
+        <span class="tl-marker"></span>
+        <div class="tl-head">
+          <span class="tl-org">DGIST, MBIS Lab</span>
+          <span class="tag">Research</span>
+          <span class="tl-date">Oct 2024 – Mar 2026</span>
+        </div>
+        <div class="tl-role">Undergraduate Researcher</div>
+        <p class="tl-advisor">Advisor: Prof. Jaeyoun Hwang</p>
+        <ul class="tl-list">
+          <li>Compared and optimized classification models (ResNet, DenseNet, EfficientNet) on Alzheimer's MRI data, using Layer-CAM to validate model reasoning</li>
+          <li>Presented at the 2025 K-Bio Star / Glocal Lab student conference</li>
+        </ul>
+        <a class="tl-file-link" href="images/4.pdf" target="_blank" rel="noopener">View poster (PDF) ↗</a>
+      </div>
+
+      <div class="tl-item reveal">
+        <span class="tl-marker"></span>
+        <div class="tl-head">
+          <span class="tl-org">DGIST, SEO Lab</span>
+          <span class="tag">Research</span>
+          <span class="tl-date">Jun 2024 – Aug 2024</span>
+        </div>
+        <div class="tl-role">Summer Research Intern</div>
+        <p class="tl-advisor">Advisor: Prof. Jin Soo Seo</p>
+        <ul class="tl-list">
+          <li>Researched Alzheimer's pathology (β-amyloid accumulation, dopamine receptor dysfunction) using 3D assembloid and organoid models</li>
+        </ul>
+        <img class="tl-img" src="images/seolab.png" alt="SEO Lab completion certificate">
+      </div>
+
+      <div class="tl-item reveal">
+        <span class="tl-marker"></span>
+        <div class="tl-head">
+          <span class="tl-org">UGRP — Wearable Blood Pressure Patch</span>
+          <span class="tag">Research</span>
+          <span class="tl-date">Mar 2025 – Dec 2025</span>
+        </div>
+        <ul class="tl-list">
+          <li>Designed and validated a PPG–ultrasound fusion blood-pressure patch for wearable healthcare; presented poster at WEEF &amp; GEDC 2025</li>
+        </ul>
+        <img class="tl-img" src="images/5.webp" alt="WEEF & GEDC poster: conformable blood pressure monitoring patch">
+      </div>
+
+      <div class="tl-item reveal">
+        <span class="tl-marker"></span>
+        <div class="tl-head">
+          <span class="tl-org">Ministry of SMEs — K-Global Correspondent, 8th Cohort</span>
+          <span class="tag">Content</span>
+          <span class="tl-date">Mar 2025 – Dec 2025</span>
+        </div>
+        <ul class="tl-list">
+          <li>Produced 25+ policy communication pieces (blog, card news, short-form video) across topics from SME support to G7/APEC, aimed at an MZ-generation audience</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section id="projects">
+  <div class="wrap">
+
+    <h3 class="h-sub">Startup projects</h3>
+
+    <div class="startup-block reveal">
+      <img class="startup-hero" src="images/6.jpg" alt="Gachi — AI life documentation for retirees">
+      <div class="startup-head">
+        <h3>Gachi</h3>
+        <span class="startup-meta">Jan 2026 – present</span>
+      </div>
+      <p class="startup-tagline">같이 사는 가치 — transforming the retirement journey into meaningful narratives through AI-powered life documentation.</p>
+      <p>Gachi lets retirees speak their life story a few minutes a day and turns it into a curated, editable memoir through AI. The project grew out of the GCSC International Startup Camp, where our team won gold and was selected for GCSC's seeding (funding) program. <strong>My role:</strong> AI planning &amp; development — I built the MVP myself, including the voice-recording UI and the transcription + memoir-generation pipeline.</p>
+      <img class="startup-sub-img" src="images/7.jpg" alt="Gachi application prototype design">
+    </div>
+
+    <div class="startup-block reveal">
+      <img class="startup-hero" src="images/8.jpg" alt="Jetmind — closed-loop AI for circadian rhythm recovery">
+      <div class="startup-head">
+        <h3>Jetmind</h3>
+        <span class="startup-meta">Jul 2026 – present</span>
+      </div>
+      <p class="startup-tagline">무너진 생체리듬을 되돌리는 폐쇄루프 AI — a closed-loop AI that restores broken circadian rhythms for shift workers and flight crew.</p>
+      <p>Jetmind reads data from wearables people already own to predict circadian rhythm and prescribe exactly when to get light, take melatonin, or sleep — built for shift workers and flight crew. The project is affiliated with the Four S&amp;T Institutes' Startup League (DGIST, GIST, KAIST, UNIST) and has received funding. <strong>My role:</strong> AI development lead — building the closed-loop LSTM/Transformer and reinforcement-learning engine.</p>
+    </div>
+
+    <h3 class="h-sub">Other activities</h3>
+    <div class="activity-list">
+
+      <div class="activity-item reverse reveal">
+        <div>
+          <div class="activity-title">DGIST Official SNS Supporters, "Dignal"</div>
+          <div class="activity-meta">Mar 2025 – Dec 2025</div>
+          <div class="activity-desc">Grew official Instagram/YouTube short-form content to 50,000+ combined reach.</div>
+        </div>
+        <img class="activity-thumb lg" src="images/10.png" alt="Dignal content thumbnail">
+      </div>
+
+      <div class="activity-item no-img reveal">
+        <div>
+          <div class="activity-title">GCSC International Startup Camp — Gold Award</div>
+          <div class="activity-meta">Jan – Feb 2026 · Gachon University × Hitotsubishi University</div>
+          <div class="activity-desc">Gold Award, Local Track 1st place, with a joint Korean–Japanese team; presented at SUSHI TECH Tokyo 2026. <a class="inline-link" href="https://futurechosun.com/archives/143748?fbclid=PAZnRzaAP5B7xleHRuA2FlbQIxMQBzcnRjBmFwcF9pZA8xMjQwMjQ1NzQyODc0MTQAAaeKqHGkuNgwN_X2MIYH2USRdRy388o9dl8OEWsS5v4x4wAC2SFMqvlwjCvpsA_aem_KPYYfIJ0SYHIuWmVqjL1zQ" target="_blank" rel="noopener">Coverage ↗</a></div>
+        </div>
+      </div>
+
+      <div class="activity-item no-img reveal">
+        <div>
+          <div class="activity-title">4th Industrial Revolution Youth Experience Corps, 8th Cohort</div>
+          <div class="activity-meta">Oct 2025 – Jan 2026</div>
+          <div class="activity-desc">Toured CES 2026 and Silicon Valley companies; submitted a global startup ecosystem report. <a class="inline-link" href="https://m.imaeil.com/page/view/2026011117355978670" target="_blank" rel="noopener">Coverage ↗</a></div>
+        </div>
+      </div>
+
+      <div class="activity-item no-img reveal">
+        <div>
+          <div class="activity-title">Samsung Electronics Open Tech Companions, 7th Cohort</div>
+          <div class="activity-meta">Aug 2026 – Dec 2026</div>
+          <div class="activity-desc">Selected for Samsung Electronics' extracurricular tech program.</div>
+        </div>
+      </div>
+
+      <div class="activity-item no-img reveal">
+        <div>
+          <div class="activity-title">Google Analytics (GA4) Certification</div>
+          <div class="activity-meta">2026</div>
+          <div class="activity-desc">Google's log-analytics tool for tracking website and app user behavior at the event level.</div>
+        </div>
+      </div>
+
+      <div class="activity-item no-img reveal">
+        <div>
+          <div class="activity-title">Samsung Life Insurance Special Financial Academy</div>
+          <div class="activity-meta">Aug 2026</div>
+          <div class="activity-desc">4-day extracurricular program on financial literacy.</div>
+        </div>
+      </div>
+
+      <div class="activity-item no-img reveal">
+        <div>
+          <div class="activity-title">Kiwoom Securities Supporters, 2nd Cohort</div>
+          <div class="activity-meta">Apr 2026 – Sep 2026</div>
+          <div class="activity-desc">Submitted an app and community improvement proposal and contributed to community feature planning.</div>
+        </div>
+      </div>
+
+      <div class="activity-item no-img reveal">
+        <div>
+          <div class="activity-title">OOP Term Project — ATM System</div>
+          <div class="activity-meta">Coursework</div>
+          <div class="activity-desc">Implemented a full ATM system in C++ following object-oriented design principles.</div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="video-row reveal">
+      <div class="video-embed">
+        <iframe src="https://www.youtube.com/embed/88ALLVxem0U" title="Video" allowfullscreen loading="lazy"></iframe>
+      </div>
+      <div class="video-embed portrait">
+        <iframe src="https://www.youtube.com/embed/5rmcKcSGLmc" title="Short" allowfullscreen loading="lazy"></iframe>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section id="skills" style="padding-top:40px; padding-bottom:40px;">
+  <div class="wrap">
+    <p class="kicker">Skills</p>
+    <h2 class="h-section" style="font-size:1.25rem; margin-bottom:18px;">Toolkit</h2>
+    <div class="skill-groups">
+      <div class="skill-group reveal">
+        <h4>Technical Skills</h4>
+        <div class="chips">
+          <span class="chip lab">Python</span><span class="chip lab">PyTorch</span><span class="chip lab">PyTorch Lightning</span>
+          <span class="chip lab">MONAI</span><span class="chip lab">CUDA</span><span class="chip lab">3D CNN</span>
+          <span class="chip lab">U-Net</span><span class="chip lab">VQ-GAN</span><span class="chip lab">Latent Diffusion Models</span>
+          <span class="chip lab">Generative AI</span><span class="chip lab">Medical Image Processing</span><span class="chip lab">MRI / NIfTI Analysis</span>
+          <span class="chip lab">Image Segmentation</span><span class="chip lab">Explainable AI (Grad-CAM, Layer-CAM)</span>
+          <span class="chip lab">Deep Learning for Medical Imaging</span><span class="chip">C</span><span class="chip">C++</span>
+        </div>
+      </div>
+      <div class="skill-group reveal">
+        <h4>Research Skills</h4>
+        <div class="chips">
+          <span class="chip lab">Multimodal Medical Imaging AI</span><span class="chip lab">Explainable Deep Learning</span>
+          <span class="chip lab">Alzheimer's Disease Neuroimaging Analysis</span><span class="chip lab">MRI–PET Fusion</span>
+          <span class="chip lab">Attention-based Model Interpretation</span><span class="chip lab">Anatomical Validation of AI Models</span>
+        </div>
+      </div>
+      <div class="skill-group reveal">
+        <h4>Product &amp; Content</h4>
+        <div class="chips">
+          <span class="chip brand">User Journey Mapping</span><span class="chip brand">Persona Design</span>
+          <span class="chip brand">Short-form Video</span><span class="chip brand">Brand Storytelling</span>
+          <span class="chip brand">Policy Content</span><span class="chip brand">Google Analytics (GA4)</span>
+        </div>
+      </div>
+      <div class="skill-group reveal">
+        <h4>Tools &amp; Productivity</h4>
+        <div class="chips">
+          <span class="chip">Slack</span><span class="chip">Google Workspace</span><span class="chip">MS Office</span>
+          <span class="chip">한컴오피스</span><span class="chip">Video Editing</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="gallery">
+  <div class="wrap">
+    <p class="kicker">Gallery</p>
+    <h2 class="h-section">Snapshots</h2>
+
+    <div class="gallery-row gallery-row-2">
+      <div class="gallery-item reveal">
+        <img class="gallery-photo" src="images/mbis.png" alt="Korean Society of Medical & Biological Engineering conference">
+        <div class="gallery-cap">Korean Society of Medical &amp; Biological Engineering — presenting MBIS Lab work</div>
+      </div>
+      <div class="gallery-item reveal">
+        <img class="gallery-photo" src="images/ugrp.png" alt="UGRP research conference">
+        <div class="gallery-cap">UGRP research conference</div>
+      </div>
+    </div>
+
+    <div class="gallery-row gallery-row-2">
+      <div class="gallery-item reveal">
+        <img class="gallery-photo" src="images/harvard.png" alt="Harvard memories">
+        <div class="gallery-cap">Harvard — memories from the summer</div>
+      </div>
+      <div class="gallery-item reveal">
+        <img class="gallery-photo" src="images/MGH.png" alt="MGH research presentation">
+        <div class="gallery-cap">MGH research presentation</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section id="contact">
+  <div class="wrap contact-inner">
+    <div class="reveal">
+      <p class="kicker">Contact</p>
+      <h2 class="h-section">Contact</h2>
+      <p style="color:var(--ink-soft); max-width:480px; margin-top:-14px;">Open to research collaborations, internships, and anything at the edge of the two threads above.</p>
+    </div>
+    <div class="contact-links reveal">
+      <a class="btn primary" href="mailto:kw040131@dgist.ac.kr">kw040131@dgist.ac.kr</a>
+      <a class="btn" href="https://www.linkedin.com/in/kyuwon-kathryn-park-60119637b/" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">© 2026 Kyuwon (Kathryn) Park.</div>
+</footer>
+
+<script>
+  const revealEls = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, {threshold:.12});
+  revealEls.forEach(el=>io.observe(el));
+</script>
+
+</body>
+</html>
